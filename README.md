@@ -2,6 +2,8 @@
 
 Can a small convolutional neural network reliably tell apart three apple leaf diseases and healthy leaves from a photo? This project trains and compares two CNN architectures in PyTorch on the apple subset of the PlantVillage dataset.
 
+<p align="center"><img src="images/sample_images.png" width="420" alt="Sample leaf images per class"></p>
+
 ## Highlights
 
 - **Dataset**: 3,171 RGB images (256x256) in 4 classes, resized to 128x128 and split 70/15/15 (2,219 / 475 / 477) with a fixed seed
@@ -20,6 +22,11 @@ Test set, best configuration per architecture, compared with two heuristic basel
 | CNN_Model1 (2 conv blocks + FC, 16,797,892 params) | LR 0.0005, CosineAnnealingLR | 0.9606 | 0.9538 |
 | Baseline: stratified random | – | 0.2366 | 0.2465 |
 | Baseline: most frequent class | always "healthy" | 0.1226 | 0.2500 |
+
+<p align="center">
+  <img src="images/test_precision_heatmap.png" width="49%" alt="Test macro precision for all 16 configurations">
+  <img src="images/confusion_matrix_best_model.png" width="49%" alt="Confusion matrix of the best model">
+</p>
 
 All 16 CNN runs reached at least 0.944 macro precision on the test set. All 8 CNN_Model2 runs scored higher than all 8 CNN_Model1 runs. Model 1 overfits clearly: its training loss falls close to zero while validation loss rises.
 
@@ -79,6 +86,7 @@ Inputs must be preprocessed as in the notebook: resize to 128x128, `ToTensor()`,
 | `cnn_model1_best.zip` | Best CNN_Model1 checkpoint (zipped) |
 | `cnn_model2_best.pth` | Best CNN_Model2 checkpoint |
 | `requirements.txt` | Python dependencies |
+| `images/` | Charts and screenshots used in this README |
 
 ## How to run
 
