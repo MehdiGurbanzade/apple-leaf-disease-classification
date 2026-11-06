@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+*.db
+venv/
+.venv/
+.DS_Store
+Thumbs.db
+
+# Dataset is not part of the repo (see README)
+data/
+Apple___*/
+# Unzipped copy of model 1 (the repo ships cnn_model1_best.zip)
+cnn_model1_best.pth
